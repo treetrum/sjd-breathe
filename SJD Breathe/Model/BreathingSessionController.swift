@@ -8,13 +8,6 @@
 import Foundation
 import Observation
 
-enum BreathingSpeed: Double {
-    case slow = 6
-    case regular = 3.5
-    case fast = 2
-    case xfast = 1
-}
-
 enum BreathingSessionStep {
     case idle
     case breathing
@@ -36,16 +29,6 @@ enum BreathingSessionStep {
 }
 
 @Observable class BreathingSessionController {
-    
-    let numberOfBreaths: Int
-    let speed: BreathingSpeed
-    let recoveryTime: Double
-    
-    init(numberOfBreaths: Int = 30, speed: BreathingSpeed = .regular, recoveryTime: Double = 15) {
-        self.numberOfBreaths = numberOfBreaths
-        self.speed = speed
-        self.recoveryTime = recoveryTime
-    }
 
     var currentStep: BreathingSessionStep = .idle
     
@@ -57,6 +40,8 @@ enum BreathingSessionStep {
     var recoveryTimer: Timer?
     var holdingTimer: Timer?
     
+    var settings = AppSettingsController.shared
+    
     func startSession() {
         startBreathing()
     }
@@ -66,9 +51,9 @@ enum BreathingSessionStep {
         currentStep = .breathing
         
         Timer.scheduledTimer(withTimeInterval: 0.01, repeats: false) { _ in
-            self.breathingCount = self.numberOfBreaths
+            self.breathingCount = self.settings.numberOfBreaths
 
-            self.breathingTimer = Timer.scheduledTimer(withTimeInterval: self.speed.rawValue, repeats: true) { timer in
+            self.breathingTimer = Timer.scheduledTimer(withTimeInterval: self.settings.speed.fullBreathDuration, repeats: true) { timer in
                 self.breathingCount -= 1
                 if self.breathingCount == 0 {
                     timer.invalidate()
@@ -90,7 +75,7 @@ enum BreathingSessionStep {
     func stopHolding() {
         holdingTimer?.invalidate()
         currentStep = .recovering
-        self.secondsRecovering = Int(self.recoveryTime)
+        self.secondsRecovering = Int(self.settings.recoveryTime)
         
         self.recoveryTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
             self.secondsRecovering -= 1

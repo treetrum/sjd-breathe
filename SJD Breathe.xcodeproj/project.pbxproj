@@ -13,6 +13,10 @@
 		224635572A6E106400D90C02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224635562A6E106400D90C02 /* Preview Assets.xcassets */; };
 		2246355F2A6E111B00D90C02 /* BreathingSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246355E2A6E111B00D90C02 /* BreathingSessionController.swift */; };
 		2257AC3A2A6E469C008925D6 /* AppSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257AC392A6E469C008925D6 /* AppSettingsController.swift */; };
+		2257AC3C2A6E5884008925D6 /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257AC3B2A6E5884008925D6 /* IdleView.swift */; };
+		2257AC3E2A6E58F7008925D6 /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257AC3D2A6E58F7008925D6 /* BreathingView.swift */; };
+		2257AC402A6E5914008925D6 /* HoldingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257AC3F2A6E5914008925D6 /* HoldingView.swift */; };
+		2257AC422A6E595A008925D6 /* RecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257AC412A6E595A008925D6 /* RecoveryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		224635562A6E106400D90C02 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2246355E2A6E111B00D90C02 /* BreathingSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSessionController.swift; sourceTree = "<group>"; };
 		2257AC392A6E469C008925D6 /* AppSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsController.swift; sourceTree = "<group>"; };
+		2257AC3B2A6E5884008925D6 /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
+		2257AC3D2A6E58F7008925D6 /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
+		2257AC3F2A6E5914008925D6 /* HoldingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldingView.swift; sourceTree = "<group>"; };
+		2257AC412A6E595A008925D6 /* RecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				2246355D2A6E110D00D90C02 /* Model */,
+				2257AC432A6E5B32008925D6 /* Views */,
 				2246354F2A6E106200D90C02 /* SJDBreatheApp.swift */,
-				224635512A6E106200D90C02 /* ContentView.swift */,
 				224635532A6E106400D90C02 /* Assets.xcassets */,
 				224635552A6E106400D90C02 /* Preview Content */,
 			);
@@ -79,6 +87,18 @@
 				2257AC392A6E469C008925D6 /* AppSettingsController.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2257AC432A6E5B32008925D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				224635512A6E106200D90C02 /* ContentView.swift */,
+				2257AC3B2A6E5884008925D6 /* IdleView.swift */,
+				2257AC3D2A6E58F7008925D6 /* BreathingView.swift */,
+				2257AC3F2A6E5914008925D6 /* HoldingView.swift */,
+				2257AC412A6E595A008925D6 /* RecoveryView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +175,10 @@
 				224635522A6E106200D90C02 /* ContentView.swift in Sources */,
 				2246355F2A6E111B00D90C02 /* BreathingSessionController.swift in Sources */,
 				224635502A6E106200D90C02 /* SJDBreatheApp.swift in Sources */,
+				2257AC3C2A6E5884008925D6 /* IdleView.swift in Sources */,
+				2257AC402A6E5914008925D6 /* HoldingView.swift in Sources */,
+				2257AC3E2A6E58F7008925D6 /* BreathingView.swift in Sources */,
+				2257AC422A6E595A008925D6 /* RecoveryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
