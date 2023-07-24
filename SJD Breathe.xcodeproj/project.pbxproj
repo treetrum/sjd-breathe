@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		224635502A6E106200D90C02 /* SJD_BreatheApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246354F2A6E106200D90C02 /* SJD_BreatheApp.swift */; };
+		224635502A6E106200D90C02 /* SJDBreatheApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246354F2A6E106200D90C02 /* SJDBreatheApp.swift */; };
 		224635522A6E106200D90C02 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224635512A6E106200D90C02 /* ContentView.swift */; };
 		224635542A6E106400D90C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224635532A6E106400D90C02 /* Assets.xcassets */; };
 		224635572A6E106400D90C02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224635562A6E106400D90C02 /* Preview Assets.xcassets */; };
+		2246355F2A6E111B00D90C02 /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246355E2A6E111B00D90C02 /* BreathingSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2246354C2A6E106200D90C02 /* SJD Breathe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SJD Breathe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2246354F2A6E106200D90C02 /* SJD_BreatheApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJD_BreatheApp.swift; sourceTree = "<group>"; };
+		2246354F2A6E106200D90C02 /* SJDBreatheApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJDBreatheApp.swift; sourceTree = "<group>"; };
 		224635512A6E106200D90C02 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		224635532A6E106400D90C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		224635562A6E106400D90C02 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2246355E2A6E111B00D90C02 /* BreathingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +53,8 @@
 		2246354E2A6E106200D90C02 /* SJD Breathe */ = {
 			isa = PBXGroup;
 			children = (
-				2246354F2A6E106200D90C02 /* SJD_BreatheApp.swift */,
+				2246355D2A6E110D00D90C02 /* Model */,
+				2246354F2A6E106200D90C02 /* SJDBreatheApp.swift */,
 				224635512A6E106200D90C02 /* ContentView.swift */,
 				224635532A6E106400D90C02 /* Assets.xcassets */,
 				224635552A6E106400D90C02 /* Preview Content */,
@@ -65,6 +68,14 @@
 				224635562A6E106400D90C02 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2246355D2A6E110D00D90C02 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2246355E2A6E111B00D90C02 /* BreathingSession.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				224635522A6E106200D90C02 /* ContentView.swift in Sources */,
-				224635502A6E106200D90C02 /* SJD_BreatheApp.swift in Sources */,
+				2246355F2A6E111B00D90C02 /* BreathingSession.swift in Sources */,
+				224635502A6E106200D90C02 /* SJDBreatheApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

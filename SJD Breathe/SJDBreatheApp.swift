@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct SJD_BreatheApp: App {
+struct SJDBreatheApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
