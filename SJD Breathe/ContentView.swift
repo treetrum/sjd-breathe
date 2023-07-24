@@ -30,11 +30,11 @@ enum HoldingAnimationPhase: CaseIterable {
 
 struct ContentView: View {
     
-    var session: BreathingSession = .init()
+    var session: BreathingSessionController = .init()
     @State var recoverAnimation = 0
     @State var isHolding = false
     
-    init(session: BreathingSession = .init()) {
+    init(session: BreathingSessionController = .init()) {
         self.session = session
     }
     
@@ -152,25 +152,25 @@ struct ContentView: View {
 }
 
 #Preview("Default") {
-    let session = BreathingSession(numberOfBreaths: 5, speed: .xfast, recoveryTime: 3)
+    let session = BreathingSessionController(numberOfBreaths: 5, speed: .xfast, recoveryTime: 3)
     session.currentStep = .idle
     return ContentView(session: session)
 }
 
 #Preview("Breathing") {
-    let session = BreathingSession(numberOfBreaths: 5, speed: .xfast, recoveryTime: 5)
+    let session = BreathingSessionController(numberOfBreaths: 5, speed: .xfast, recoveryTime: 5)
     session.startSession()
     return ContentView(session: session)
 }
 
 #Preview("Holding") {
-    let session = BreathingSession(numberOfBreaths: 5, speed: .xfast, recoveryTime: 5)
+    let session = BreathingSessionController(numberOfBreaths: 5, speed: .xfast, recoveryTime: 5)
     session.startHolding()
     return ContentView(session: session)
 }
 
 #Preview("Recovering") {
-    let session = BreathingSession(numberOfBreaths: 5, speed: .xfast, recoveryTime: 5)
+    let session = BreathingSessionController(numberOfBreaths: 5, speed: .xfast, recoveryTime: 5)
     session.stopHolding()
     return ContentView(session: session)
 }

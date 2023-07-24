@@ -35,7 +35,7 @@ enum BreathingSessionStep {
     }
 }
 
-@Observable class BreathingSession {
+@Observable class BreathingSessionController {
     
     let numberOfBreaths: Int
     let speed: BreathingSpeed
