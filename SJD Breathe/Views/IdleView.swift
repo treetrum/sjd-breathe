@@ -24,24 +24,16 @@ struct IdleView: View {
         Text("Breathing speed")
             .font(.title)
         
-        Circle()
-            .stroke(Color.accentColor, lineWidth: BreathingIndicator.lineWidth)
-            .foregroundStyle(.black.opacity(0))
-            .overlay {
-                Circle()
-                    .foregroundColor(Color.accentColor)
-                    .scaleEffect(animationTrigger ? BreathingIndicator.maxScale : BreathingIndicator.minScale)
-                    .animation(.easeInOut(duration: appSettings.speed.halfBreathDuration), value: animationTrigger)
-                    .onAppear {
-                        self.timer = Timer.scheduledTimer(withTimeInterval: appSettings.speed.halfBreathDuration, repeats: true) { timer in
-                            animationTrigger.toggle()
-                        }
-                    }.onChange(of: appSettings.speed) { _, newValue in
-                        self.timer = Timer.scheduledTimer(withTimeInterval: appSettings.speed.halfBreathDuration, repeats: true) { timer in
-                            animationTrigger.toggle()
-                        }
-                    }
-            }.frame(width: breathingIndicatorSize, height: breathingIndicatorSize)
+        BreathingIndicator(trigger: $animationTrigger)
+            .onAppear {
+                self.timer = Timer.scheduledTimer(withTimeInterval: appSettings.speed.halfBreathDuration, repeats: true) { timer in
+                    animationTrigger.toggle()
+                }
+            }.onChange(of: appSettings.speed) { _, newValue in
+                self.timer = Timer.scheduledTimer(withTimeInterval: appSettings.speed.halfBreathDuration, repeats: true) { timer in
+                    animationTrigger.toggle()
+                }
+            }
         
         Picker("Test", selection: $appSettings.speed) {
             ForEach(BreathingSpeed.visibleCases, id: \.self) { speed in

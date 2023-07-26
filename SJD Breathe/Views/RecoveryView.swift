@@ -16,17 +16,7 @@ struct RecoveryView: View {
 
     var body: some View {
         Text("Recover").font(.title)
-
-        Circle()
-            .stroke(Color.accentColor, lineWidth: BreathingIndicator.lineWidth)
-            .foregroundStyle(.black.opacity(0))
-            .frame(width: breathingIndicatorSize, height: breathingIndicatorSize)
-            .overlay(content: {
-                Circle()
-                    .foregroundColor(Color.accentColor)
-                    .foregroundStyle(.black.opacity(0))
-                    .scaleEffect(breathIn ? BreathingIndicator.maxScale : BreathingIndicator.minScale)
-            })
+        BreathingIndicator(trigger: $breathIn)
             .onAppear {
                 Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
                     self.breathIn = false
