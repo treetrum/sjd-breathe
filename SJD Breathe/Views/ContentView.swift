@@ -10,29 +10,6 @@ import Observation
 
 let breathingIndicatorSize: CGFloat = 150
 
-struct BreathingIndicator: View {
-    static let size: CGFloat = 100
-    static let lineWidth: CGFloat = 5
-    static let minScale = 0.1
-    static let maxScale = 0.9
-    
-    @EnvironmentObject var appSettings: AppSettingsController
-    
-    @Binding var trigger: Bool
-    
-    var body: some View {
-        Circle()
-            .stroke(Color.accentColor, lineWidth: BreathingIndicator.lineWidth)
-            .foregroundStyle(.black.opacity(0))
-            .overlay {
-                Circle()
-                    .foregroundColor(Color.accentColor)
-                    .scaleEffect(trigger ? BreathingIndicator.maxScale : BreathingIndicator.minScale)
-                    .animation(.easeInOut(duration: appSettings.speed.halfBreathDuration), value: trigger)
-            }.frame(width: breathingIndicatorSize, height: breathingIndicatorSize)
-    }
-}
-
 struct ContentView: View {
     
     @Environment(BreathingSessionController.self) var session
@@ -65,14 +42,20 @@ struct ContentView: View {
 
                 VStack {
                     if session.currentStep == .idle {
-                        Button("Start session") {
+                        Button {
                             session.startSession()
+                        } label: {
+                            Text("Start session")
+                                .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderedProminent)
                         .controlSize(.large)
                     } else {
-                        Button("Stop session") {
+                        Button {
                             session.stopSession()
+                        } label: {
+                            Text("Stop session")
+                                .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderedProminent)
                         .controlSize(.large)

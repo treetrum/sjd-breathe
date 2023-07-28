@@ -20,28 +20,57 @@ struct IdleView: View {
         }
     }
     
+    @State var id = UUID()
+    
     var body: some View {
-        Text("Breathing speed")
+        Text("Setup")
             .font(.title)
         
         BreathingIndicator(trigger: $animationTrigger)
+            .id(id)
             .onAppear {
                 self.timer = Timer.scheduledTimer(withTimeInterval: appSettings.speed.halfBreathDuration, repeats: true) { timer in
                     animationTrigger.toggle()
                 }
-            }.onChange(of: appSettings.speed) { _, newValue in
-                self.timer = Timer.scheduledTimer(withTimeInterval: appSettings.speed.halfBreathDuration, repeats: true) { timer in
+            }
+            .onChange(of: appSettings.speed) { _, newValue in
+                id = UUID()
+                animationTrigger = false
+                self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
                     animationTrigger.toggle()
+                    self.timer = Timer.scheduledTimer(withTimeInterval: appSettings.speed.halfBreathDuration, repeats: true) { timer in
+                        animationTrigger.toggle()
+                    }
                 }
             }
         
-        Picker("Test", selection: $appSettings.speed) {
-            ForEach(BreathingSpeed.visibleCases, id: \.self) { speed in
-                Text("\(speed.label)").tag(speed)
+
+        Form {
+            Section() {
+                Picker("Test", selection: $appSettings.speed) {
+                    ForEach(BreathingSpeed.visibleCases, id: \.self) { speed in
+                        Text("\(speed.label)").tag(speed)
+                    }
+                }
+                .pickerStyle(.segmented)
+            } header: {
+                Text("Breathing speed")
+                    .padding(.leading, 20)
+            }
+            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .listRowSeparator(.hidden)
+            .listRowSpacing(0)
+            .listRowBackground(EmptyView())
+
+            Section("Number of breaths") {
+                Stepper("\(appSettings.numberOfBreaths)", value: $appSettings.numberOfBreaths)
+            }
+
+            Section("Recovery time (seconds)") {
+                Stepper("\(appSettings.recoveryTime)", value: $appSettings.recoveryTime)
             }
         }
-        .pickerStyle(.segmented)
-        .padding(.horizontal)
+        
     }
 }
 
